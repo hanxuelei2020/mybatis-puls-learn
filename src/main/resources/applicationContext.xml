@@ -41,6 +41,18 @@
 		
 		<!-- 注入全局MP策略配置 -->
 		<property name="globalConfig" ref="dbConfig"></property>
+		
+		<!-- 插件 -->
+		<property name="plugins">
+			<list>
+				<bean class="com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor"></bean>
+				<!-- 检验是否全表更新或删除 -->
+				<bean class="com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerInterceptor"></bean>
+				<!-- 注册乐观锁 -->
+				<bean class="com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor"></bean>
+			</list>
+			
+		</property>
 	</bean>
 
 	<!-- 定义MybatisPlus的全局策略配置-->
